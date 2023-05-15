@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import env from 'react-dotenv';
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const CategoryProduct = () => {
                   key={p._id}
                 >
                   <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
+                    src={`${env.BACKEND_URL}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                   />

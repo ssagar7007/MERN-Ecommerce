@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import  toast  from "react-hot-toast"
 import AdminMenu from '../../components/Layout/AdminMenu'
 import Layout from "../../components/Layout/Layout"
 import { useAuth } from "../../context/auth";
 import moment from 'moment';
 import { Select } from "antd"
+import env from 'react-dotenv';
 const { Option } = Select;
 
 const AdminOrders = () => {
     const [status, setStatus] = useState(["Not Process", "Processing", "Shipped", "deliverd", "cancel"])
-    const [changeStatus, setChangeStatus] = useState("")
     const [orders, setOrders] = useState([]);
     const [auth, setAuth] = useAuth();
     const getOrders = async () => {
@@ -85,7 +84,7 @@ const AdminOrders = () => {
                               <div className="row mb-2 p-3 card flex-row" key={p._id}>
                                 <div className="col-md-4">
                                   <img
-                                    src={`/api/v1/product/product-photo/${p._id}`}
+                                    src={`${env.BACKEND_URL}/api/v1/product/product-photo/${p._id}`}
                                     className="card-img-top"
                                     alt={p.name}
                                     width="100px"

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+import env from 'react-dotenv';
 const ProductDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const ProductDetails = () => {
       <div className="row container mt-2">
         <div className="col-md-6">
           <img
-            src={`/api/v1/product/product-photo/${product._id}`}
+            src={`${env.BACKEND_URL}/api/v1/product/product-photo/${product._id}`}
             className="card-img-top"
             alt={product.name}
             height="300"
@@ -84,7 +85,7 @@ const ProductDetails = () => {
           {relatedProducts?.map((p) => (
             <div className="card m-2" style={{ width: "18rem" }}>
               <img
-                src={`/api/v1/product/product-photo/${p?._id}`}
+                src={`${env.BACKEND_URL}/api/v1/product/product-photo/${p?._id}`}
                 className="card-img-top"
                 alt={p.name}
               />

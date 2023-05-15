@@ -13,8 +13,9 @@ const About = () => {
           />
         </div>
         <div className="col-md-4">
+         
           <p className="text-justify mt-2">
-            We Deliver the best products, In minimum time.
+            We Deliver the best products in minimum time.
           </p>
         </div>
       </div>
