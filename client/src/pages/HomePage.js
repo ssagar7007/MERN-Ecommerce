@@ -146,6 +146,7 @@ const HomePage = () => {
         <div className="col-md-9 offset-1" onScroll={()=> setPage(page + 1)}>
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
+          <div> {loading?<img src={loader_img} alt="Loading..."/>:"" }</div>
             {products?.map((p) => (
               <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
                 <img
